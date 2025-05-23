@@ -1,15 +1,21 @@
 import styles from './ColourBlock.module.css';
-import { useMemoryArray, useOrder, useCurrentOrderIndex, useIsDisabled, useSequence } from './utils/hooks';
+import { useGameContext } from './utils/context/contextHook';
 import { playSequence } from './utils/playSequence';
 import type { ColourRefs } from './utils/types';
 
 export default function ColourBlock({ id, refs}: {id: 'red' | 'blue' | 'green' | 'yellow', refs: ColourRefs}) {
 
-    const { order } = useOrder();
-    const { currentOrderIndex, setCurrentOrderIndex } = useCurrentOrderIndex();
-    const { isDisabled, setIsDisabled } = useIsDisabled();
-    const { memoryArray, setMemoryArray } = useMemoryArray();
-    const { sequence, setSequence } = useSequence();
+    const {
+      order,
+      currentOrderIndex,
+      setCurrentOrderIndex,
+      isDisabled,
+      setIsDisabled,
+      memoryArray,
+      setMemoryArray,
+      sequence,
+      setSequence,
+    } = useGameContext();
     
       function handleClick() {
         

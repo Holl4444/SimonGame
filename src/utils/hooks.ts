@@ -1,55 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import getColourOrder from './helperFunctions';
 import { playSequence } from './playSequence';
 import type { ColourRefs } from './types';
 import { useGameContext } from './context/contextHook';
-
-export const useMemoryArray = () => {
-  const [memoryArray, setMemoryArray] = useState<string[]>([]);
-  return { memoryArray, setMemoryArray };
-};
-
-export const useOrder = () => {
-  const [order, setOrder] = useState(getColourOrder());
-  return { order, setOrder };
-};
-
-export const useCurrentOrderIndex = () => {
-  const [currentOrderIndex, setCurrentOrderIndex] = useState(0);
-  return { currentOrderIndex, setCurrentOrderIndex };
-};
-
-export const useIsDisabled = () => {
-  const [isDisabled, setIsDisabled] = useState(true);
-  return { isDisabled, setIsDisabled };
-};
-
-export const useSequence = () => {
-  const { order } = useOrder();
-  const { currentOrderIndex } = useCurrentOrderIndex();
-  const [sequence, setSequence] = useState<string[]>([]);
-
-  useEffect(() => {
-    setSequence(order.slice(0, currentOrderIndex));
-  }, [order, currentOrderIndex]);
-  
-  return { sequence, setSequence };
-};
-
-export const useIsCountingDown = () => {
-  const [isCountingDown, setIsCountingDown] = useState(false);
-  return { isCountingDown, setIsCountingDown };
-};
-
-export const useBtnText = () => {
-  const [btnText, setBtnText] = useState('Start');
-  return { btnText, setBtnText };
-};
-
-export const useSecToStart = () => {
-  const [secToStart, setSecToStart] = useState(3);
-  return { secToStart, setSecToStart };
-};
 
 export const useCountDown = (
   refs: ColourRefs,

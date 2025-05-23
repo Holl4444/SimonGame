@@ -30,10 +30,12 @@ export default function App() {
     }),
     []
   );
+  
+  const start = useStart();
 
   useCountDown(refs);
 
-  const start = useStart();
+
 
 
   return (
