@@ -9,7 +9,8 @@ export const useCountDown = (
 ) => {
    const {
       order,
-      currentOrderIndex,
+     currentOrderIndex,
+      setCurrentOrderIndex,
       setIsDisabled,
       setSequence,
       setBtnText,
@@ -54,6 +55,7 @@ export const useCountDown = (
     setIsCountingDown,
     order,
     currentOrderIndex,
+    setCurrentOrderIndex,
     refs,
     setIsDisabled,
     setSequence,

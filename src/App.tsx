@@ -6,13 +6,8 @@ import ColourBlock from './ColourBlock';
 
 export default function App() {
   const {
-    order,
-    sequence,
     btnText,
   } = useGameContext();
-
-  console.log(order);
-  console.log(sequence);
 
   const red = useRef<HTMLDivElement>(null);
   const blue = useRef<HTMLDivElement>(null);
@@ -30,7 +25,9 @@ export default function App() {
     }),
     []
   );
-  
+
+  const colours: string[] = ['red', 'blue', 'green', 'yellow'];
+
   const start = useStart();
 
   useCountDown(refs);
@@ -43,13 +40,9 @@ export default function App() {
       <article className={styles.gameBoard}>
         <h1 className={styles.title}>🤖 Simon 🤖</h1>
         <section className={styles.colourContainer}>
-          <ColourBlock id="red" refs={refs} />
-
-          <ColourBlock id="blue" refs={refs} />
-
-          <ColourBlock id="green" refs={refs} />
-
-          <ColourBlock id="yellow" refs={refs} />
+          {colours.map((colour) => (
+            <ColourBlock key={colour} id={colour as 'red' | 'blue' | 'green' | 'yellow'} refs={refs} />
+          ))}
 
           <div id={styles.shadowCircleShade}></div>
           <div id={styles.vLine}></div>
@@ -59,6 +52,7 @@ export default function App() {
           <button id={styles.playBtn} ref={centreBtn} onClick={start}>
             {btnText}
           </button>
+
         </section>
       </article>
     </div>

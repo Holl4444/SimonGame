@@ -26,4 +26,8 @@ export interface GameContextType {
   setIsCountingDown: (counting: boolean) => void;
   secToStart: number;
   setSecToStart: (seconds: number) => void;
+  sequenceLength: number;
+  setSequenceLength: (length: number) => void;
 }
+
+export type ColourKey = keyof  ColourRefs;

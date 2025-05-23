@@ -1,59 +1,60 @@
 #red {
-    background-color: red;
-    width: 15rem;
-    height: 15rem;
-    grid-area: 1 / 1 / 2 / 2;
-    border-top-left-radius: 50%;
-    box-shadow: inset 0 0 15px 15px #e46d6d;
-  }
-  #red:active {
-    box-shadow: inset 0 0 20px 20px #e46d6d;
-  }
-  
-  #blue {
-    background-color: blue;
-    width: 15rem;
-    height: 15rem;
-    grid-area: 1 / 2 / 2 / 3;
-    border-top-right-radius: 50%;
-    box-shadow: inset 0 0 15px 15px #8b8be4;
-  }
-  
-  #blue:active {
-    box-shadow: inset 0 0 20px 20px #8b8be4;
-  }
-  
-  #green {
-    background-color: green;
-    width: 15rem;
-    height: 15rem;
-    grid-area: 2 / 2 / 3 / 3;
-    border-bottom-right-radius: 50%;
-    box-shadow: inset 0 0 15px 15px #6e916e;
-  }
-  
-  #green:active {
-    box-shadow: inset 0 0 22px 22px #6e916e;
-  }
-  
-  #yellow {
-    background-color: yellow;
-    width: 15rem;
-    height: 15rem;
-    grid-area: 2 / 1 / 3 / 2;
-    border-bottom-left-radius: 50%;
-    box-shadow: inset 0 0 15px 15px #e4e4ab;
-  }
-  
-  #yellow:Active {
-    box-shadow: inset 0 0 23px 23px #e4e4ab;
-  }
+  background-color: red;
+  width: 15rem;
+  height: 15rem;
+  grid-area: 1 / 1 / 2 / 2;
+  border-top-left-radius: 50%;
+  box-shadow: inset 0 0 15px 15px #e46d6d;
+}
+#red:active {
+  box-shadow: inset 0 0 20px 20px #e46d6d;
+}
+
+#blue {
+  background-color: blue;
+  width: 15rem;
+  height: 15rem;
+  grid-area: 1 / 2 / 2 / 3;
+  border-top-right-radius: 50%;
+  box-shadow: inset 0 0 15px 15px #8b8be4;
+}
+
+#blue:active {
+  box-shadow: inset 0 0 20px 20px #8b8be4;
+}
+
+#green {
+  background-color: green;
+  width: 15rem;
+  height: 15rem;
+  grid-area: 2 / 2 / 3 / 3;
+  border-bottom-right-radius: 50%;
+  box-shadow: inset 0 0 15px 15px #6e916e;
+}
+
+#green:active {
+  box-shadow: inset 0 0 22px 22px #6e916e;
+}
+
+#yellow {
+  background-color: yellow;
+  width: 15rem;
+  height: 15rem;
+  grid-area: 2 / 1 / 3 / 2;
+  border-bottom-left-radius: 50%;
+  box-shadow: inset 0 0 15px 15px #e4e4ab;
+}
+
+#yellow:active {
+  box-shadow: inset 0 0 23px 23px #e4e4ab;
+}
 
 .disableBtn {
-    opacity: 0.6;
-    cursor: not-allowed;
-  }
-  
-  .playing {
-    filter:brightness(120%);
-  }
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.playing {
+  opacity: 1;
+  cursor: not-allowed;
+}
