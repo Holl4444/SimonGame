@@ -1,11 +1,12 @@
 import styless from './ColourBlock.module.css';
 import { useGameContext } from './utils/context/contextHook';
 import { playSequence } from './utils/playSequence';
-import bmHigh from '../../public/B-m-high.mp3';
-import fTone from '../public/F.mp3';
-import bmLow from '../public/B-m-low.mp3';
-import dmTone from '../public/D-m.mp3';
 import type { ColourRefs } from './utils/types';
+import UIfx from 'uifx';
+import bmHigh from './assets/B-m-high.mp3';
+import fTone from './assets/F.mp3';
+import bmLow from './assets/B-m-low.mp3';
+import dmTone from './assets/D-m.mp3';
 
 export default function ColourBlock({
   id,
@@ -33,14 +34,20 @@ export default function ColourBlock({
     const nextIndex = currentOrderIndex + 1;
     const nextSequenceLength = sequenceLength + 1;
 
-    const tone = id === 'red'
-      ? '../public/F.mp3'
-      : id === 'blue'
-      ? '../public/B-m-low.mp3'
-      : id === 'green'
-      ? '../public/B-m-high.mp3'
-      : '../public/D-m.mp3';
-
+    const tone = new UIfx(
+      id === 'red'
+        ? fTone
+        : id === 'blue'
+        ? bmLow
+        : id === 'green'
+        ? bmHigh
+        : dmTone,
+      {
+        volume: 1.0,
+        throttleMs: 0,
+      }
+    );
+    tone.play();
 
     if (expectedColour !== id) {
       // Play aggresive wrong noise
