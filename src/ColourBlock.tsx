@@ -1,4 +1,5 @@
-import styless from './ColourBlock.module.css';
+import { useState } from 'react';
+import styles from './ColourBlock.module.css';
 import { useGameContext } from './utils/context/contextHook';
 import { playSequence } from './utils/playSequence';
 import type { ColourRefs } from './utils/types';
@@ -14,7 +15,9 @@ export default function ColourBlock({
 }: {
   id: 'red' | 'blue' | 'green' | 'yellow';
   refs: ColourRefs;
-}) {
+  }) {
+  const [isSelected, setIsSelected] = useState(false);
+  
   const {
     order,
     currentOrderIndex,
@@ -48,6 +51,12 @@ export default function ColourBlock({
       }
     );
     tone.play();
+
+    setIsSelected(true);
+    setTimeout(() => setIsSelected(false), 500);
+
+    refs[id].current?.classList.add(styles.selected);
+    setTimeout(() => refs[id].current?.classList.remove(styles.selected), 500);
 
     if (expectedColour !== id) {
       // Play aggresive wrong noise
@@ -92,12 +101,12 @@ export default function ColourBlock({
 
   return (
     <div
-      className={`${styless.colourBlock} ${
-        isDisabled && styless.disableBtn
-      }`}
-      id={styless[id]}
+      className={`${styles.colourBlock} ${
+        isDisabled && styles.disableBtn
+      } ${isSelected ? styles.selected : ''}`}
+      id={styles[id]}
       ref={refs[id]}
-      onClick={handleClick}
+      onMouseDown={handleClick}
     ></div>
   );
 }

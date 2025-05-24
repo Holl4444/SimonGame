@@ -30,7 +30,7 @@ export const playSequence = (
     tone.play();
   }
 
-  console.log(`sequenceLength: `, sequenceLength);
+  console.log(`sequenceLength: `, sequenceLength + 1);
   const sequence = order.slice(0, sequenceLength + 1);
   setSequence(sequence);
 
@@ -62,6 +62,6 @@ export const playSequence = (
           setIsDisabled(false);
         }, 600);
       }
-    }, (index + 1) * 1000);
+    }, (index + 1) * 600);
   });
 };

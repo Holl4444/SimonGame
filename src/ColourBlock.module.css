@@ -1,3 +1,15 @@
+.colourBlock {
+  opacity: 0.6;
+}
+
+.selected, .playing{
+  opacity: 1;
+}
+
+.playing {
+  cursor: not-allowed;
+}
+
 #red {
   background-color: red;
   width: 15rem;
@@ -6,7 +18,7 @@
   border-top-left-radius: 50%;
   box-shadow: inset 0 0 15px 15px #e46d6d;
 }
-#red:active {
+#red.active {
   box-shadow: inset 0 0 20px 20px #e46d6d;
 }
 
@@ -19,7 +31,7 @@
   box-shadow: inset 0 0 15px 15px #8b8be4;
 }
 
-#blue:active {
+#blue.active {
   box-shadow: inset 0 0 20px 20px #8b8be4;
 }
 
@@ -32,7 +44,7 @@
   box-shadow: inset 0 0 15px 15px #6e916e;
 }
 
-#green:active {
+#green.active {
   box-shadow: inset 0 0 22px 22px #6e916e;
 }
 
@@ -45,16 +57,11 @@
   box-shadow: inset 0 0 15px 15px #e4e4ab;
 }
 
-#yellow:active {
+#yellow.active {
   box-shadow: inset 0 0 23px 23px #e4e4ab;
 }
 
 .disableBtn {
-  opacity: 0.6;
   cursor: not-allowed;
-}
-
-.playing {
-  opacity: 1;
-  cursor: not-allowed;
+  pointer-events: none;
 }
