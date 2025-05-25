@@ -5,9 +5,7 @@ import styles from './App.module.css';
 import ColourBlock from './ColourBlock';
 
 export default function App() {
-  const {
-    btnText,
-  } = useGameContext();
+  const { btnText } = useGameContext();
 
   const red = useRef<HTMLDivElement>(null);
   const blue = useRef<HTMLDivElement>(null);
@@ -50,13 +48,15 @@ export default function App() {
           <div id={styles.centralCircle}></div>
           <button
             id={styles.playBtn}
-            className={`${btnText === 'Start' ? styles.start : btnText ==='You Win!' ? styles.start : btnText === 'Game Over' ? styles.red : btnText === 'Listen' ? styles.red : btnText === 'Go' ? styles.start : styles.start}`}
+            className={`${
+              (btnText === 'Game Over' || btnText === 'Listen') &&
+              styles.red
+            }`}
             ref={centreBtn}
             onClick={start}
           >
             {btnText}
           </button>
-   
         </section>
       </article>
     </div>
