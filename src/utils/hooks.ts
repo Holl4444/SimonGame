@@ -13,6 +13,8 @@ export const useCountDown = (refs: ColourRefs) => {
     setBtnText,
     isCountingDown,
     setIsCountingDown,
+    memoryArray,
+    setSequenceLength
   } = useGameContext();
 
   const startCountdown = useCallback(() => {
@@ -26,15 +28,18 @@ export const useCountDown = (refs: ColourRefs) => {
         setBtnText(count.toString());
       } else {
         clearInterval(countdownInterval);
-        setBtnText('Start');
         setIsCountingDown(false);
 
         playSequence(
           order,
           currentOrderIndex,
           refs,
+          memoryArray,
           setIsDisabled,
-          setSequence
+          setSequence,
+          setBtnText,
+          setSequenceLength
+          
         );
       }
     }, 800);
@@ -48,6 +53,7 @@ export const useCountDown = (refs: ColourRefs) => {
     setIsCountingDown,
     setIsDisabled,
     setSequence,
+    memoryArray
   ]);
 
   useEffect(() => {

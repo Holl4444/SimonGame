@@ -88,6 +88,16 @@
   box-shadow: 0 0 3px 3px rgb(71, 70, 70);
 }
 
+#playBtn.start {
+  background: green;
+  color: white;
+}
+
+#playBtn.red {
+  background: red;
+  color: white;
+}
+
 #playBtn:hover {
   background: green;
   color: white;

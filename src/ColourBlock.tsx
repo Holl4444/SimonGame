@@ -30,6 +30,7 @@ export default function ColourBlock({
     setSequence,
     sequenceLength,
     setSequenceLength,
+    setBtnText
   } = useGameContext();
 
   function handleClick() {
@@ -64,6 +65,11 @@ export default function ColourBlock({
       // Disable all colours
       setIsDisabled(true);
       console.log(`Game Over`);
+      setBtnText(`Game Over`);
+      setTimeout(() => {
+        setBtnText('Start');
+      }, 3000);
+      
       return;
     }
 
@@ -71,6 +77,7 @@ export default function ColourBlock({
     if (nextIndex >= order.length) {
       console.log(`Woohoo you're amazing, you win`);
       setIsDisabled(true);
+      setBtnText('You Win!')
       return;
       //add flashing light sequence
     }
@@ -92,8 +99,11 @@ export default function ColourBlock({
           order,
           sequenceLength,
           refs,
+          updatedMemoryArray,
           setIsDisabled,
-          setSequence
+          setSequence,
+          setBtnText,
+          setSequenceLength
         );
       }, 1000);
     }

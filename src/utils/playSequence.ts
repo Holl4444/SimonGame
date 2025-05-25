@@ -10,9 +10,15 @@ export const playSequence = (
   order: string[],
   sequenceLength: number,
   refs: ColourRefs,
+  memoryArray: string[] | null,
   setIsDisabled: (disabled: boolean) => void,
-  setSequence: (sequence: string[]) => void
+  setSequence: (sequence: string[]) => void,
+  setBtnText: (btnText: string) => void,
+  setSequenceLength: (sequenceLength: number) => void
 ) => {
+
+  setBtnText('Listen');
+  console.log(`memoryArray: `, memoryArray);
   function playTone(colour: string) {
     const tone = new UIfx(
       colour === 'red'
@@ -30,9 +36,8 @@ export const playSequence = (
     tone.play();
   }
 
-  console.log(`sequenceLength: `, sequenceLength + 1);
   const sequence = order.slice(0, sequenceLength + 1);
-  setSequence(sequence);
+  console.log(`sequenceLength: `, sequenceLength);
 
   setIsDisabled(true);
   const lastIndex = sequence.length - 1;
@@ -60,8 +65,17 @@ export const playSequence = (
       if (index === lastIndex) {
         setTimeout(() => {
           setIsDisabled(false);
+          setSequence(
+            order.slice(
+              0,
+              sequence.length + 1
+            )
+          );
+          setSequenceLength(sequenceLength + 1);
+          setBtnText('Go')
         }, 600);
       }
     }, (index + 1) * 600);
   });
+
 };

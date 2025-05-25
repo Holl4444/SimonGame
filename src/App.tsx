@@ -32,27 +32,31 @@ export default function App() {
 
   useCountDown(refs);
 
-
-
-
   return (
     <div className={`${styles.content} ${styles.leagueGothicNormal}`}>
       <article className={styles.gameBoard}>
         <h1 className={styles.title}>🤖 Simon 🤖</h1>
         <section className={styles.colourContainer}>
           {colours.map((colour) => (
-            <ColourBlock key={colour} id={colour as 'red' | 'blue' | 'green' | 'yellow'} refs={refs} />
+            <ColourBlock
+              key={colour}
+              id={colour as 'red' | 'blue' | 'green' | 'yellow'}
+              refs={refs}
+            />
           ))}
-
           <div id={styles.shadowCircleShade}></div>
           <div id={styles.vLine}></div>
           <div id={styles.hLine}></div>
           <div id={styles.centralCircle}></div>
-
-          <button id={styles.playBtn} ref={centreBtn} onClick={start}>
+          <button
+            id={styles.playBtn}
+            className={`${btnText === 'Start' ? styles.start : btnText ==='You Win!' ? styles.start : btnText === 'Game Over' ? styles.red : btnText === 'Listen' ? styles.red : btnText === 'Go' ? styles.start : ''}`}
+            ref={centreBtn}
+            onClick={start}
+          >
             {btnText}
           </button>
-
+   
         </section>
       </article>
     </div>

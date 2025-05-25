@@ -14,7 +14,7 @@ export const GameProvider: React.FC<{ children: ReactNode }> = ({
   const [btnText, setBtnText] = useState<string>('Start');
   const [isCountingDown, setIsCountingDown] = useState(false);
   const [secToStart, setSecToStart] = useState(3);
-  const [sequenceLength, setSequenceLength] = useState(1);
+  const [sequenceLength, setSequenceLength] = useState(0);
 
   const value = useMemo(
     () => ({
