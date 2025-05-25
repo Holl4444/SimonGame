@@ -50,7 +50,7 @@ export default function App() {
           <div id={styles.centralCircle}></div>
           <button
             id={styles.playBtn}
-            className={`${btnText === 'Start' ? styles.start : btnText ==='You Win!' ? styles.start : btnText === 'Game Over' ? styles.red : btnText === 'Listen' ? styles.red : btnText === 'Go' ? styles.start : ''}`}
+            className={`${btnText === 'Start' ? styles.start : btnText ==='You Win!' ? styles.start : btnText === 'Game Over' ? styles.red : btnText === 'Listen' ? styles.red : btnText === 'Go' ? styles.start : styles.start}`}
             ref={centreBtn}
             onClick={start}
           >
