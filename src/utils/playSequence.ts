@@ -22,24 +22,28 @@ export const playSequence = (
   const lastIndex = sequence.length - 1;
 
   sequence.forEach((colour, index) => {
+    // Add sound timer to give a head start to audio
     setTimeout(() => {
-      const colourKey: ColourKey = colour;
-      const colourPlaying = refs[colourKey];
-      const colourTone = colour;
-      console.log(
-        `Playing colour ${index + 1}/${sequence.length}: ${colour}`
-      );
+      playSound(colour);
+    
+      // slightly delay visuals
+      setTimeout(() => {
+        const colourKey: ColourKey = colour;
+        const colourPlaying = refs[colourKey];
+        console.log(
+          `Playing colour ${index + 1}/${sequence.length}: ${colour}`
+        );
 
-      if (colourPlaying?.current) {
-        colourPlaying.current.classList.add(styles.playing);
-        colourPlaying.current.classList.remove(styles.disabled);
-        playSound(colourTone);
+        if (colourPlaying?.current) {
+          colourPlaying.current.classList.add(styles.playing);
+          colourPlaying.current.classList.remove(styles.disabled);
 
-        setTimeout(() => {
-          colourPlaying.current?.classList.remove(styles.playing);
-          colourPlaying.current?.classList.add(styles.disabled);
-        }, 500);
-      }
+          setTimeout(() => {
+            colourPlaying.current?.classList.remove(styles.playing);
+            colourPlaying.current?.classList.add(styles.disabled);
+          }, 400);
+        }
+      }, 50);
 
       if (index === lastIndex) {
         setTimeout(() => {
@@ -47,7 +51,7 @@ export const playSequence = (
           setSequence(order.slice(0, sequence.length + 1));
           setSequenceLength(sequenceLength + 1);
           setBtnText('Go');
-        }, 600);
+        }, 500);
       }
     }, (index + 1) * 600);
   });
