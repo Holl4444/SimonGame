@@ -4,7 +4,7 @@ import dmTone from '../../src/assets/D-m.mp3';
 import bmLow from '../../src/assets/B-m-low.mp3';
 
 // Create audio elements
-const audioFiles = {
+export const audioFiles = {
   red: new Audio(fTone),
   blue: new Audio(bmLow),
   green: new Audio(bmHigh),
