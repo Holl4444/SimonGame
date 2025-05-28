@@ -1,4 +1,4 @@
-import styles from '../ColourBlock.module.css';
+import styles from '../components/ColourBlock.module.css';
 import type { ColourRefs, ColourKey } from './types';
 import { playSound } from '../utils/useAudio';
 

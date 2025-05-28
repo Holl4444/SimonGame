@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import styles from './ColourBlock.module.css';
-import { useGameContext } from './utils/context/contextHook';
-import { playSequence } from './utils/playSequence';
-import type { ColourRefs } from './utils/types';
-import { playSound } from './utils/useAudio';
+import { useGameContext } from '../utils/context/contextHook';
+import { playSequence } from '../utils/playSequence';
+import type { ColourRefs } from '../utils/types';
+import { playSound } from '../utils/useAudio';
 
 export default function ColourBlock({
   id,

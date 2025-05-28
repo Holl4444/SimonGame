@@ -9,7 +9,6 @@ TODO:
 
 // Refactor state - not all needed
 
-
-// Fix race conditions on button spamming
-
 // Mobile responsitivity
+
+//Get T to test this fix!: race conditions on button spamming

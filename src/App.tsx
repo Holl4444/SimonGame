@@ -2,7 +2,7 @@ import { useMemo, useRef } from 'react';
 import { useGameContext } from './utils/context/contextHook';
 import { useStart, useCountDown } from './utils/hooks';
 import styles from './App.module.css';
-import ColourBlock from './ColourBlock';
+import ColourBlock from './components/ColourBlock';
 
 export default function App() {
   const { btnText, sequenceLength } = useGameContext();
@@ -64,7 +64,14 @@ export default function App() {
             </button>
           </section>
         </div>
-        <h1 className={`${styles.title} ${btnText !== 'Start' && styles.hide}`}> Put your memory to the test </h1>
+        <h1
+          className={`${styles.title} ${
+            btnText !== 'Start' && styles.hide
+          }`}
+        >
+          {' '}
+          Put your memory to the test{' '}
+        </h1>
       </article>
     </div>
   );
