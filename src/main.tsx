@@ -2,6 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { GameProvider } from './utils/context/GameProvider.tsx';
 import './index.css';
+import './utils/useAudio';
 import App from './App.tsx';
 
 createRoot(document.getElementById('root')!).render(

@@ -1,10 +1,6 @@
-import styles from '../ColourBlock.module.css'
+import styles from '../ColourBlock.module.css';
 import type { ColourRefs, ColourKey } from './types';
-import UIfx from 'uifx';
-import bmHigh from '../assets/B-m-high.mp3';
-import fTone from '../assets/F.mp3';
-import bmLow from '../assets/B-m-low.mp3';
-import dmTone from '../assets/D-m.mp3';
+import { playSound } from '../utils/useAudio';
 
 export const playSequence = (
   order: string[],
@@ -16,25 +12,8 @@ export const playSequence = (
   setBtnText: (btnText: string) => void,
   setSequenceLength: (sequenceLength: number) => void
 ) => {
-
   setBtnText('Listen');
   console.log(`memoryArray: `, memoryArray);
-  function playTone(colour: string) {
-    const tone = new UIfx(
-      colour === 'red'
-        ? fTone
-        : colour === 'blue'
-        ? bmLow
-        : colour === 'green'
-        ? bmHigh
-        : dmTone,
-      {
-        volume: 1.0,
-        throttleMs: 0,
-      }
-    );
-    tone.play();
-  }
 
   const sequence = order.slice(0, sequenceLength + 1);
   console.log(`sequenceLength: `, sequenceLength);
@@ -54,7 +33,7 @@ export const playSequence = (
       if (colourPlaying?.current) {
         colourPlaying.current.classList.add(styles.playing);
         colourPlaying.current.classList.remove(styles.disabled);
-        playTone(colourTone);
+        playSound(colourTone);
 
         setTimeout(() => {
           colourPlaying.current?.classList.remove(styles.playing);
@@ -65,17 +44,11 @@ export const playSequence = (
       if (index === lastIndex) {
         setTimeout(() => {
           setIsDisabled(false);
-          setSequence(
-            order.slice(
-              0,
-              sequence.length + 1
-            )
-          );
+          setSequence(order.slice(0, sequence.length + 1));
           setSequenceLength(sequenceLength + 1);
-          setBtnText('Go')
+          setBtnText('Go');
         }, 600);
       }
     }, (index + 1) * 600);
   });
-
 };

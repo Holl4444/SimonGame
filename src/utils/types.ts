@@ -30,4 +30,4 @@ export interface GameContextType {
   setSequenceLength: (length: number) => void;
 }
 
-export type ColourKey = keyof  ColourRefs;
+export type ColourKey = keyof ColourRefs;

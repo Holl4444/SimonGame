@@ -95,13 +95,32 @@
 }
 
 #playBtn:hover {
-  background: green;
-  color: white;
+filter: brightness(110%)
 }
 
-#playBtn:active {
-  background: green;
-  color: white;
+#playBtn.green:active {
   font-size: 2.2em;
   box-shadow: inset 0 0 5px 5px rgb(1, 59, 1);
+}
+
+#playBtn.red:active {
+  font-size: 2.2em;
+  box-shadow: inset 0 0 5px 5px #ff0000;
+}
+
+.runInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+  font-size: 1.7rem;
+  width: 18rem;
+  height: 12rem;
+  padding: 0.5rem 2rem;
+  border: 5px solid black;
+  border-radius: 1.7rem;
+}
+
+.runCount {
+  font-size: 3rem;
 }

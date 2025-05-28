@@ -5,7 +5,7 @@ import styles from './App.module.css';
 import ColourBlock from './ColourBlock';
 
 export default function App() {
-  const { btnText } = useGameContext();
+  const { btnText, sequenceLength } = useGameContext();
 
   const red = useRef<HTMLDivElement>(null);
   const blue = useRef<HTMLDivElement>(null);
@@ -58,6 +58,10 @@ export default function App() {
             {btnText}
           </button>
         </section>
+        <div className={styles.runInfo}>
+          <span>Run length:</span>
+          <span className={styles.runCount}>{sequenceLength === 0 ? 0 : sequenceLength - 1}</span>
+        </div>
       </article>
     </div>
   );

@@ -3,11 +3,7 @@ import styles from './ColourBlock.module.css';
 import { useGameContext } from './utils/context/contextHook';
 import { playSequence } from './utils/playSequence';
 import type { ColourRefs } from './utils/types';
-import UIfx from 'uifx';
-import bmHigh from './assets/B-m-high.mp3';
-import fTone from './assets/F.mp3';
-import bmLow from './assets/B-m-low.mp3';
-import dmTone from './assets/D-m.mp3';
+import { playSound } from './utils/useAudio';
 
 export default function ColourBlock({
   id,
@@ -15,9 +11,9 @@ export default function ColourBlock({
 }: {
   id: 'red' | 'blue' | 'green' | 'yellow';
   refs: ColourRefs;
-  }) {
+}) {
   const [isSelected, setIsSelected] = useState(false);
-  
+
   const {
     order,
     currentOrderIndex,
@@ -30,7 +26,7 @@ export default function ColourBlock({
     setSequence,
     sequenceLength,
     setSequenceLength,
-    setBtnText
+    setBtnText,
   } = useGameContext();
 
   function handleClick() {
@@ -38,26 +34,16 @@ export default function ColourBlock({
     const nextIndex = currentOrderIndex + 1;
     const nextSequenceLength = sequenceLength + 1;
 
-    const tone = new UIfx(
-      id === 'red'
-        ? fTone
-        : id === 'blue'
-        ? bmLow
-        : id === 'green'
-        ? bmHigh
-        : dmTone,
-      {
-        volume: 1.0,
-        throttleMs: 0,
-      }
-    );
-    tone.play();
+    playSound(id);
 
     setIsSelected(true);
     setTimeout(() => setIsSelected(false), 500);
 
     refs[id].current?.classList.add(styles.selected);
-    setTimeout(() => refs[id].current?.classList.remove(styles.selected), 500);
+    setTimeout(
+      () => refs[id].current?.classList.remove(styles.selected),
+      500
+    );
 
     if (expectedColour !== id) {
       // Play aggresive wrong noise
@@ -69,7 +55,7 @@ export default function ColourBlock({
       setTimeout(() => {
         setBtnText('Start');
       }, 3000);
-      
+
       return;
     }
 
@@ -77,7 +63,10 @@ export default function ColourBlock({
     if (nextIndex >= order.length) {
       console.log(`Woohoo you're amazing, you win`);
       setIsDisabled(true);
-      setBtnText('You Win!')
+      setBtnText('You Win 😍');
+      setTimeout(() => {
+        setBtnText('Start');
+      }, 3000);
       return;
       //add flashing light sequence
     }

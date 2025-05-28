@@ -53,6 +53,7 @@ export const useCountDown = (refs: ColourRefs) => {
     setIsCountingDown,
     setIsDisabled,
     setSequence,
+    setSequenceLength,
     memoryArray
   ]);
 
