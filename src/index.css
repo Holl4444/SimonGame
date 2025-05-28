@@ -1,6 +1,14 @@
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background-image: url('assets/red_space_dark.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }

@@ -33,35 +33,38 @@ export default function App() {
   return (
     <div className={`${styles.content} ${styles.leagueGothicNormal}`}>
       <article className={styles.gameBoard}>
-        <h1 className={styles.title}>🤖 Simon 🤖</h1>
-        <section className={styles.colourContainer}>
-          {colours.map((colour) => (
-            <ColourBlock
-              key={colour}
-              id={colour as 'red' | 'blue' | 'green' | 'yellow'}
-              refs={refs}
-            />
-          ))}
-          <div id={styles.shadowCircleShade}></div>
-          <div id={styles.vLine}></div>
-          <div id={styles.hLine}></div>
-          <div id={styles.centralCircle}></div>
-          <button
-            id={styles.playBtn}
-            className={`${
-              (btnText === 'Game Over' || btnText === 'Listen') &&
-              styles.red
-            }`}
-            ref={centreBtn}
-            onClick={start}
-          >
-            {btnText}
-          </button>
-        </section>
         <div className={styles.runInfo}>
-          <span>Run length:</span>
-          <span className={styles.runCount}>{sequenceLength === 0 ? 0 : sequenceLength - 1}</span>
+          <span className={styles.runCount}>
+            {sequenceLength === 0 ? 0 : sequenceLength - 1}
+          </span>
         </div>
+        <div className={styles.gameDisplay}>
+          <section className={styles.colourContainer}>
+            {colours.map((colour) => (
+              <ColourBlock
+                key={colour}
+                id={colour as 'red' | 'blue' | 'green' | 'yellow'}
+                refs={refs}
+              />
+            ))}
+            <div id={styles.shadowCircleShade}></div>
+            <div id={styles.vLine}></div>
+            <div id={styles.hLine}></div>
+            <div id={styles.centralCircle}></div>
+            <button
+              id={styles.playBtn}
+              className={`${btnText !== 'Start' && styles.disable} ${
+                (btnText === 'Game Over' || btnText === 'Listen') &&
+                styles.red
+              }`}
+              ref={centreBtn}
+              onClick={start}
+            >
+              {btnText}
+            </button>
+          </section>
+        </div>
+        <h1 className={`${styles.title} ${btnText !== 'Start' && styles.hide}`}> Put your memory to the test </h1>
       </article>
     </div>
   );

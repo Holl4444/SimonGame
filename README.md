@@ -2,7 +2,6 @@
 
 TODO:
 
-// Add: Display sequence length count
 
 // Add: Mark moment of win / loss
 
@@ -10,7 +9,6 @@ TODO:
 
 // Refactor state - not all needed
 
-// Style the container and page
 
 // Fix race conditions on button spamming
 

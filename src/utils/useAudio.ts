@@ -1,7 +1,7 @@
-import bmHigh from '../../src/assets/B-m-high.mp3';
-import fTone from '../../src/assets/F.mp3';
-import dmTone from '../../src/assets/D-m.mp3';
-import bmLow from '../../src/assets/B-m-low.mp3';
+import bmHigh from '../../src/assets/b-m-high.mp3';
+import fTone from '../../src/assets/f.mp3';
+import dmTone from '../../src/assets/d-m.mp3';
+import bmLow from '../../src/assets/b-m-low.mp3';
 
 // Create audio elements
 export const audioFiles = {
