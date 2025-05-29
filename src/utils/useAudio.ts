@@ -1,14 +1,14 @@
-// import bmHigh from 'assets/b-m-high.mp3';
-// import fTone from 'assets/f.mp3';
-// import dmTone from 'assets/d-m.mp3';
-// import bmLow from 'assets/b-m-low.mp3';
+import bmHigh from '../assets/b-m-high.mp3';
+import fTone from '../assets/f.mp3';
+import dmTone from '../assets/d-m.mp3';
+import bmLow from '../assets/b-m-low.mp3';
 
 // Create audio elements
 export const audioFiles = {
-  red: new Audio('/audio/f.mp3'),
-  blue: new Audio('/audio/b-m-low.mp3'),
-  green: new Audio('/audio/b-m-high.mp3'),
-  yellow: new Audio('/audio/d-m.mp3'),
+  red: new Audio(fTone),
+  blue: new Audio(bmLow),
+  green: new Audio(bmHigh),
+  yellow: new Audio(dmTone),
 };
 
 // Track the current audio file
