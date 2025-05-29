@@ -32,11 +32,11 @@ export default function ColourBlock({
   function handleClick() {
     if (isDisabled) return;
 
-    Object.keys(refs).forEach((colour) => {
-      refs[colour as keyof typeof refs].current?.classList.remove(
-        styles.selected
-      );
-    });
+    // Object.keys(refs).forEach((colour) => {
+    //   refs[colour as keyof typeof refs].current?.classList.remove(
+    //     styles.selected
+    //   );
+    // });
 
     const expectedColour = sequence[currentOrderIndex];
     const nextIndex = currentOrderIndex + 1;
