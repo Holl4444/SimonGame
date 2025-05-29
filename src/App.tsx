@@ -1,11 +1,12 @@
 import { useMemo, useRef } from 'react';
 import { useGameContext } from './utils/context/contextHook';
 import { useStart, useCountDown } from './utils/hooks';
+import { useArrowKeys } from './utils/handleKeys';
 import styles from './App.module.css';
 import ColourBlock from './components/ColourBlock';
 
 export default function App() {
-  const { btnText, sequenceLength } = useGameContext();
+  const { btnText, sequenceLength, isDisabled } = useGameContext();
 
   const red = useRef<HTMLDivElement>(null);
   const blue = useRef<HTMLDivElement>(null);
@@ -23,6 +24,9 @@ export default function App() {
     }),
     []
   );
+
+  // Add arrowKey listener
+  useArrowKeys(refs, isDisabled);
 
   const colours: string[] = ['red', 'blue', 'green', 'yellow'];
 

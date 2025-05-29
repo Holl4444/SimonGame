@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styles from './ColourBlock.module.css';
 import { useGameContext } from '../utils/context/contextHook';
 import { playSequence } from '../utils/playSequence';
+import handleKeys from '../utils/handleKeys';
 import type { ColourRefs } from '../utils/types';
 import { playSound } from '../utils/useAudio';
 
@@ -105,15 +106,22 @@ export default function ColourBlock({
       }, 1000);
     }
   }
+  
 
   return (
     <div
-      className={`${styles.colourBlock} ${
-        isDisabled && styles.disableBtn
-      } ${isSelected ? styles.selected : ''}`}
+      className={`${styles.colourBlock} ${isDisabled && styles.disableBtn
+        } ${isSelected ? styles.selected : ''}`}
       id={styles[id]}
       ref={refs[id]}
       onMouseDown={handleClick}
+      onKeyUp={ (e) => handleKeys(e, isDisabled, handleClick) }
+      role="button"
+      aria-label={`${id} button`}
+      aria-pressed={isSelected}
+      aria-disabled={isDisabled}
+      tabIndex={isDisabled ? -1 : 0}
+      aria-description={`${id} coloured button for tone ${id === 'red' ? 'f' : id === 'blue' ? 'B flat, lower octave' : id === 'green' ? 'B flat, upper octave' : 'D flat'}`}
     ></div>
   );
 }
