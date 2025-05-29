@@ -36,6 +36,7 @@ export default function App() {
 
   return (
     <div className={`${styles.content} ${styles.leagueGothicNormal}`}>
+      <div className={styles.srOnly} aria-live='polite'>{ btnText === 'Start' && 'Arrow keys can be used. Left for red, up for blue, right for green, down for yellow' }</div>
       <article className={styles.gameBoard}>
         <div className={styles.runInfo}>
           <span
