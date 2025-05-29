@@ -42,12 +42,11 @@ export function useArrowKeys(refs: ColourRefs, isDisabled: boolean) {
           break;
       }
 
-      if (arrowId) {
-        e.preventDefault();
-      }
-
       // Trigger a click on the matching ColourBlock
       if (arrowId && refs[arrowId]?.current) {
+          e.preventDefault();
+          refs[arrowId].current?.focus();
+
         refs[arrowId].current?.dispatchEvent(
           new MouseEvent('mousedown', { bubbles: true })
         );
