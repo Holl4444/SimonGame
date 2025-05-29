@@ -38,11 +38,17 @@ export default function App() {
     <div className={`${styles.content} ${styles.leagueGothicNormal}`}>
       <article className={styles.gameBoard}>
         <div className={styles.runInfo}>
-          <span className={styles.runCount}>
+          <span
+            className={styles.runCount}
+            aria-label={`Score: ${
+              sequenceLength === 0 ? 0 : sequenceLength - 1
+            }`}
+          >
             {sequenceLength === 0 ? 0 : sequenceLength - 1}
           </span>
         </div>
         <div className={styles.gameDisplay}>
+          
           <section className={styles.colourContainer}>
             {colours.map((colour) => (
               <ColourBlock
@@ -73,7 +79,8 @@ export default function App() {
         <h1
           className={`${styles.title} ${
             btnText !== 'Start' && styles.hide
-          }`}
+            }`}
+          aria-hidden={btnText !== 'Start'}
         >
           {' '}
           Put your memory to the test{' '}
