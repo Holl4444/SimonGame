@@ -70,11 +70,14 @@ export function useStart() {
     setMemoryArray,
     setOrder,
     setIsCountingDown,
+    btnText
   } = useGameContext();
   return () => {
+    if (btnText === 'Start') {
     setCurrentOrderIndex(0);
     setMemoryArray([]);
     setOrder(getColourOrder());
     setIsCountingDown(true);
+  }
   };
 }

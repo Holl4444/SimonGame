@@ -62,6 +62,8 @@ export default function App() {
                 styles.red
               }`}
               ref={centreBtn}
+              tabIndex={btnText === 'Start' ? 0 : -1}
+              aria-disabled={btnText !== 'Start'}
               onClick={start}
             >
               {btnText}

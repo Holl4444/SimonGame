@@ -2,10 +2,10 @@
   opacity: 0.6;
 }
 
-/* .colourBlock:focus {
+.colourBlock:focus-visible {
   outline: 3px solid white;
   outline-offset: 3px;
-} */
+}
 
 .selected, .playing{
   opacity: 1;
@@ -17,7 +17,7 @@
 
 #red {
   background-color: red;
-  width: 15rem;
+  width: 15rem; 
   height: 15rem;
   grid-area: 1 / 1 / 2 / 2;
   border-top-left-radius: 50%;
