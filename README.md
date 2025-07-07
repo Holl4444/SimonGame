@@ -1,23 +1,29 @@
 # SIMON MEMORY GAME
 
-##
+[Overview](#overview)\
+[Features](#features)\
+[How to Play](#how-to-play)\
+[Keyboard Controls](#keyboard-controls)\
+[Accessibility](#accessibility)\
+[Development](#development)\
+[License](#license)\
+[Continued Development](#continued-development)
 
-
-Memo (Simon Game)
+## Overview
 A modern, accessible Simon memory game built with React and TypeScript.
 
 ## Features
 Classic Simon gameplay: Repeat the sequence of tones and colors as it grows.
-Keyboard accessible: Play using arrow keys (← for red, ↑ for blue, → for green, ↓ for yellow) or by clicking the coloured blocks.
+Keyboard accessible: Play using arrow keys or by clicking the coloured blocks.
 Screen reader support: Hidden instructions and ARIA attributes for an inclusive experience.
-Responsive design: Works on desktop and mobile browsers.
+Responsive design.
 Accessible start button: Only interactable when the game is ready to start.
 
 ### How to Play
 Click the Start button or press Enter when focused.
 Watch and listen to the sequence.
 Repeat the sequence using your mouse or the arrow keys.
-The sequence gets longer each round—see how far you can go!
+The sequence gets longer each round.
 
 ### Keyboard Controls
 Start Game: Tab to the Start button and press Enter/Space, or click it.
@@ -50,12 +56,10 @@ MIT
 #### Continued Development
 
 
-Add: Mark moment of win / loss
+- Add: Mark moment of win / loss
 
-Decide whether to permit endless chains / add High Score table
+- Decide whether to permit endless chains / add High Score table
 
-Refactor state - not all needed
+- Refactor state - not all needed
 
-Mobile responsitivity
-
-Get T to test this fix!: race conditions on button spamming
+- Mobile responsitivity
